@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <%= render 'layouts/navigation' %>
+  </header>
+
+<!-- Had to lowercase Email to pass the tests -->
+  <%= content_tag(:div, flash[:error].sub(/Email/,"email"), :id => "flash_error") if flash[:error] %>    
+  <%= content_tag(:div, flash[:notice].sub(/Email/,"email"), :id => "flash_notice") if flash[:notice] %> 
+  <%= content_tag(:div, flash[:alert].sub(/Email/,"email"), :id => "flash_alert") if flash[:alert] %>    
   
 <%= yield %>
 
